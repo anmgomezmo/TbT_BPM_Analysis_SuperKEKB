@@ -1,6 +1,6 @@
 # Data analysis in Turn-by-Turn BPMs signals of SuperKEKB
 
-Summary of main scripts and results of Master II thesis internship at Laboratoire Interdisciplinaire des Sciences du Numérique (LISN). For more details, consult the document ./Memoire_Master_II.pdf .
+Summary of main scripts and results of Master II thesis internship at Laboratoire Interdisciplinaire des Sciences du Numérique (LISN). For more details, consult the document [Memoire Master II](./Memoire_Master_II.pdf).
 
 ## Analysis 
 
