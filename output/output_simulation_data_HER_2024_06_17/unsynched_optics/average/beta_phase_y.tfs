@@ -1,0 +1,18 @@
+@ Measure_optics:version %s             "0.24.4"
+@ Command              %s "/home/andym/miniconda3/envs/soma/bin/python3 /home/andym/Documents/SOMA/omc3/omc3/hole_in_one.py --optics --accel skekb --ring her --compensation none --nonlinear rdt --model_dir ./model/model_track_scaled_HER_2024_06_17/ --outputdir ./output/output_track_scaled_HER_2024_06_17/unsynched_optics/average/ --files ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_50_17.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_51_02.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_51_31.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_52_05.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_52_33.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_53_03.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_53_37.sdds"
+@ CWD                  %s "/home/andym/Documents/SOMA/SOMA"
+@ Date                 %s "07. August 2025, 15:22:39"
+@ Model_directory      %s "model/model_track_scaled_HER_2024_06_17"
+@ Compensation         %s               "none"
+@ Q1                   %le       0.540974242347
+@ Q2                   %le       0.577748341435
+@ BetaAlgorithmVersion %s             "0.24.4"
+@ RCond                %le                1e-14
+@ RangeOfBPMs          %d                   11
+@ ErrorsFrom:          %s "Analytical N-BPM method"
+@ RMS_BETABEAT         %s         "1556.466 %"
+* NAME                                    S              BETYMDL              ALFYMDL               MUYMDL                 BETY              ERRBETY                 ALFY              ERRALFY                NCOMB            DELTABETY         ERRDELTABETY            DELTAALFY         ERRDELTAALFY
+$ %s                                    %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                   %d                  %le                  %le                  %le                  %le
+  "MQLB4LE"                      77.1787307           13.4490388           -3.7290514            1.8792476        39.6299587065       0.356726124984        9.57617324541       0.515458902649                    2         1.9466759146      0.0265242840242        13.3052246454       0.515458902649
+  "MQLA2RE"                    2920.9780873            1.6138226            0.7670346           41.0295339        29.1538154124       0.048849891013        9.34364886659      0.0357059642433                    1          17.06506825      0.0302696783482        8.57661426659      0.0357059642433
+  "MQLB8RE"                    2942.8131119            0.9788915           -0.0370753           41.6478066        23.1351083776       0.030104113586        1.75606073434      0.0332415081827                    4        22.6339863791       0.030753268964        1.79313603434      0.0332415081827

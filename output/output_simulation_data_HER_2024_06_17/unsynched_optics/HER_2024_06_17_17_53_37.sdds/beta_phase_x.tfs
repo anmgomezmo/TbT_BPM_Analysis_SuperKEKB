@@ -1,0 +1,16 @@
+@ Measure_optics:version %s             "0.24.4"
+@ Command              %s "/home/andym/miniconda3/envs/soma/bin/python3 /home/andym/Documents/SOMA/omc3/omc3/hole_in_one.py --optics --files ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_53_37.sdds --outputdir ./output/output_track_scaled_HER_2024_06_17/unsynched_optics/HER_2024_06_17_17_53_37.sdds --model_dir ./model/model_track_scaled_HER_2024_06_17/ --accel skekb --ring her --compensation none"
+@ CWD                  %s "/home/andym/Documents/SOMA/SOMA"
+@ Date                 %s "07. August 2025, 15:23:42"
+@ Model_directory      %s "model/model_track_scaled_HER_2024_06_17"
+@ Compensation         %s               "none"
+@ Q1                   %le       0.541006894673
+@ Q2                   %le       0.578215782459
+@ BetaAlgorithmVersion %s             "0.24.4"
+@ RCond                %le                1e-14
+@ RangeOfBPMs          %d                   11
+@ ErrorsFrom:          %s "Analytical N-BPM method"
+@ RMS_BETABEAT         %s         "1791.485 %"
+* NAME                                    S              BETXMDL              ALFXMDL               MUXMDL                 BETX              ERRBETX                 ALFX              ERRALFX                NCOMB            DELTABETX         ERRDELTABETX            DELTAALFX         ERRDELTAALFX
+$ %s                                    %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                   %d                  %le                  %le                  %le                  %le
+  "MQLC7LE"                      27.2720861            5.9290592           -0.4904134            0.4543893        112.147254345     0.00555823369064       -17.4032260742     0.00458046797052                    7        17.9148481339     0.00093745626467       -16.9128126742     0.00458046797052

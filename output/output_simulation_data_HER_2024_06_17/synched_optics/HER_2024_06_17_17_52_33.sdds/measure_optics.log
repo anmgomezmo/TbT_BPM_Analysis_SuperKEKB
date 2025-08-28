@@ -1,0 +1,183 @@
+   INFO | Calculating optics parameters - code version 0.24.4 | optics_measurements.measure_optics
+   INFO | -- Run phase calculation with requested compensation | optics_measurements.phase
+   INFO | Calculating phase advances | optics_measurements.phase
+   INFO | Measured tune in plane X = 0.540984371129 | optics_measurements.phase
+   INFO | Writing phases: 2 | optics_measurements.phase
+   INFO | Phase advance beating in phase_x.tfs = 0.24031839644915307 | optics_measurements.phase
+   INFO | Phase advance beating in total_phase_x.tfs = 0.2654591961184658 | optics_measurements.phase
+  DEBUG | Accelerator Error Definition | optics_measurements.beta_from_phase
+  DEBUG | Start creating uncertainty information | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^Q | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^S | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^MQ | optics_measurements.beta_from_phase
+  DEBUG | DONE creating uncertainty information | optics_measurements.beta_from_phase
+WARNING | No best knowledge model - using the normal one. | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E1.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE4.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E4.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE6.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQTATNE1.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQTATNE2.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE8.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E8.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE10.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE11.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQR2NE1.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQTANFE1.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E16.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE20.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E18.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE22.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE23.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE30.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE37.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQD3E33.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQEAE41.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQTAOTE1.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQTAOTE2.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQC2RE.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | No valid combinations for BPMs: ['MQD3E1', 'MQEAE4', 'MQD3E4', 'MQEAE6', 'MQTATNE1', 'MQTATNE2', 'MQEAE8', 'MQD3E8', 'MQEAE10', 'MQEAE11', 'MQR2NE1', 'MQTANFE1', 'MQD3E16', 'MQEAE20', 'MQD3E18', 'MQEAE22', 'MQEAE23', 'MQEAE30', 'MQEAE37', 'MQD3E33', 'MQEAE41', 'MQTAOTE1', 'MQTAOTE2', 'MQC2RE']. | optics_measurements.beta_from_phase
+   INFO | Errors from Analytical N-BPM method | optics_measurements.beta_from_phase
+   INFO |  - RMS beta beat: 926.655% | optics_measurements.beta_from_phase
+  DEBUG | Accelerator SKekB has not get_ips method. | optics_measurements.interaction_point
+   INFO | -- Run phase calculation with requested compensation | optics_measurements.phase
+   INFO | Calculating phase advances | optics_measurements.phase
+   INFO | Measured tune in plane Y = 0.577973820613 | optics_measurements.phase
+   INFO | Writing phases: 2 | optics_measurements.phase
+   INFO | Phase advance beating in phase_y.tfs = 0.26857546068413146 | optics_measurements.phase
+   INFO | Phase advance beating in total_phase_y.tfs = 0.29299743638777515 | optics_measurements.phase
+  DEBUG | Accelerator Error Definition | optics_measurements.beta_from_phase
+  DEBUG | Start creating uncertainty information | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^Q | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^S | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^MQ | optics_measurements.beta_from_phase
+  DEBUG | DONE creating uncertainty information | optics_measurements.beta_from_phase
+WARNING | No best knowledge model - using the normal one. | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQFRNE3.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | No valid combinations for BPMs: ['MQFRNE3']. | optics_measurements.beta_from_phase
+   INFO | Errors from Analytical N-BPM method | optics_measurements.beta_from_phase
+   INFO |  - RMS beta beat: 5345.426% | optics_measurements.beta_from_phase
+  DEBUG | Accelerator SKekB has not get_ips method. | optics_measurements.interaction_point
+   INFO | Calculating coupling | optics_measurements.coupling
+  DEBUG | Intersecting measurements, starting with model | optics_measurements.coupling
+  DEBUG | Averaging (arithmetic mean) amplitude columns | optics_measurements.coupling
+  DEBUG | Averaging (circular mean) frequency columns | optics_measurements.coupling
+  DEBUG | Finding BPM pairs for momentum reconstruction | optics_measurements.coupling
+  DEBUG | Computing complex lines from spectra | optics_measurements.coupling
+  DEBUG | Computing average of coupling RDTs | optics_measurements.coupling
+  DEBUG | Getting tune separation from measurements | optics_measurements.coupling
+  DEBUG | Calculating approximated Cminus | optics_measurements.coupling
+   INFO | |C-| (approx) = 0.00003, tune_sep = 0.036, from Eq.1 in PRSTAB 17,051004 | optics_measurements.coupling
+  DEBUG | Calculating exact Cminus | optics_measurements.coupling
+   INFO | |C-| (exact)  = 0.00000, from Eq.2 w/o i*s*Delta/R in PRSTAB 17,051004 | optics_measurements.coupling
+  DEBUG | Adding model values and deltas | optics_measurements.coupling
+  DEBUG | Computing RDT amplitude values | optics_measurements.coupling
+  DEBUG | Computing phase values | optics_measurements.coupling
+  DEBUG | Computing deviation from model | optics_measurements.coupling
+  DEBUG | Computing error values | optics_measurements.coupling
+  DEBUG | Adding real and imaginary parts columns | optics_measurements.coupling
+  DEBUG | Computing RDT amplitude values | optics_measurements.coupling
+  DEBUG | Computing phase values | optics_measurements.coupling
+  DEBUG | Computing deviation from model | optics_measurements.coupling
+  DEBUG | Computing error values | optics_measurements.coupling
+  DEBUG | Adding real and imaginary parts columns | optics_measurements.coupling

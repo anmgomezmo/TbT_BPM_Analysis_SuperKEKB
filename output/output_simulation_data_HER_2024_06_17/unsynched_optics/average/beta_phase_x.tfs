@@ -1,0 +1,16 @@
+@ Measure_optics:version %s             "0.24.4"
+@ Command              %s "/home/andym/miniconda3/envs/soma/bin/python3 /home/andym/Documents/SOMA/omc3/omc3/hole_in_one.py --optics --accel skekb --ring her --compensation none --nonlinear rdt --model_dir ./model/model_track_scaled_HER_2024_06_17/ --outputdir ./output/output_track_scaled_HER_2024_06_17/unsynched_optics/average/ --files ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_50_17.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_51_02.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_51_31.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_52_05.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_52_33.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_53_03.sdds ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_53_37.sdds"
+@ CWD                  %s "/home/andym/Documents/SOMA/SOMA"
+@ Date                 %s "07. August 2025, 15:22:39"
+@ Model_directory      %s "model/model_track_scaled_HER_2024_06_17"
+@ Compensation         %s               "none"
+@ Q1                   %le       0.540974242347
+@ Q2                   %le       0.577748341435
+@ BetaAlgorithmVersion %s             "0.24.4"
+@ RCond                %le                1e-14
+@ RangeOfBPMs          %d                   11
+@ ErrorsFrom:          %s "Analytical N-BPM method"
+@ RMS_BETABEAT         %s            "0.489 %"
+* NAME                                    S              BETXMDL              ALFXMDL               MUXMDL                 BETX              ERRBETX                 ALFX              ERRALFX                NCOMB            DELTABETX         ERRDELTABETX            DELTAALFX         ERRDELTAALFX
+$ %s                                    %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                   %d                  %le                  %le                  %le                  %le
+  "MQLC7LE"                      27.2720861            5.9290592           -0.4904134            0.4543893        5.90003908749      0.0411776702109       -2.30638152989     0.00558782769049                    7    -0.00489455603769     0.00694505971721       -1.81596812989     0.00558782769049

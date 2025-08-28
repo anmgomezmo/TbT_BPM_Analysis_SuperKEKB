@@ -1,0 +1,18 @@
+@ Measure_optics:version %s             "0.24.4"
+@ Command              %s "/home/andym/miniconda3/envs/soma/bin/python3 /home/andym/Documents/SOMA/omc3/omc3/hole_in_one.py --optics --files ./output/output_track_scaled_HER_2024_06_17/unsynched_harmonic/HER_2024_06_17_17_50_17.sdds --outputdir ./output/output_track_scaled_HER_2024_06_17/unsynched_optics/HER_2024_06_17_17_50_17.sdds --model_dir ./model/model_track_scaled_HER_2024_06_17/ --accel skekb --ring her --compensation none"
+@ CWD                  %s "/home/andym/Documents/SOMA/SOMA"
+@ Date                 %s "07. August 2025, 15:23:24"
+@ Model_directory      %s "model/model_track_scaled_HER_2024_06_17"
+@ Compensation         %s               "none"
+@ Q1                   %le       0.540943145752
+@ Q2                   %le       0.577559412443
+@ BetaAlgorithmVersion %s             "0.24.4"
+@ RCond                %le                1e-14
+@ RangeOfBPMs          %d                   11
+@ ErrorsFrom:          %s "Analytical N-BPM method"
+@ RMS_BETABEAT         %s          "831.248 %"
+* NAME                                    S              BETYMDL              ALFYMDL               MUYMDL                 BETY              ERRBETY                 ALFY              ERRALFY                NCOMB            DELTABETY         ERRDELTABETY            DELTAALFY         ERRDELTAALFY
+$ %s                                    %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                   %d                  %le                  %le                  %le                  %le
+  "MQLC3LE"                      12.9355133            21.412544           11.7651256            0.2655008        133.717642877       0.199922780055        35.6791565932       0.443556539192                    7        5.24482746549     0.00933671309932        23.9140309932       0.443556539192
+  "MQLB4LE"                      77.1787307           13.4490388           -3.7290514            1.8792476        39.6482700469       0.356511043372        9.57819830345       0.515201850085                    2        1.94803744985      0.0265082916834        13.3072497034       0.515201850085
+  "MQLA2RE"                    2920.9780873            1.6138226            0.7670346           41.0295339        29.0284453665      0.0316668824662        9.30300061283       0.026144092329                    1         16.987383103      0.0196222821927        8.53596601283       0.026144092329
