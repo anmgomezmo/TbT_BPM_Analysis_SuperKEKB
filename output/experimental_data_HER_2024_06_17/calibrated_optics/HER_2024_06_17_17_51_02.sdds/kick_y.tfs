@@ -1,0 +1,12 @@
+@ Measure_optics:version %s             "0.24.4"
+@ Command              %s "/home/andym/miniconda3/envs/soma/bin/python3 /home/andym/Documents/SOMA/omc3/omc3/hole_in_one.py --optics --files ./output/output_short_HER_2024_06_17/calibrated_harmonic/HER_2024_06_17_17_51_02.sdds --outputdir ./output/output_short_HER_2024_06_17/calibrated_optics/HER_2024_06_17_17_51_02.sdds --model_dir ./model/model_short_HER_2024_06_17/ --accel skekb --ring her --compensation none"
+@ CWD                  %s "/home/andym/Documents/SOMA/SOMA"
+@ Date                 %s "15. July 2025, 14:21:48"
+@ Model_directory      %s "model/model_short_HER_2024_06_17"
+@ Compensation         %s               "none"
+@ Q1                   %le        0.53604336828
+@ Q2                   %le       0.536040306091
+@ RescalingFactorY     %le        3.41193563285
+*                 TIME                  DPP               DPPAMP                   QY                ERRQY                NATQY             ERRNATQY              sqrt2JY           ERRsqrt2JY                  2JY               ERR2JY           sqrt2JYRES        ERRsqrt2JYRES               2JYRES            ERR2JYRES
+$                   %s                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le                  %le
+  "2025_06_30@16_46_51_588941"                    0                    0       0.536040306091     3.4102062462e-05       0.536040306091     3.4102062462e-05    6.83824118743e-05    8.78161859346e-05    1.82478344392e-09    5.02076413271e-09    0.000233316387734    0.000299623173931    6.22604365454e-09    1.71305240485e-08

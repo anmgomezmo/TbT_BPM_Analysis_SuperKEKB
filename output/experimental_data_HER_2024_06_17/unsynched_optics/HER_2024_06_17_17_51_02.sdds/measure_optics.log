@@ -1,0 +1,72 @@
+   INFO | Calculating optics parameters - code version 0.24.4 | optics_measurements.measure_optics
+   INFO | -- Run phase calculation with requested compensation | optics_measurements.phase
+   INFO | Calculating phase advances | optics_measurements.phase
+   INFO | Measured tune in plane X = 0.536043398082 | optics_measurements.phase
+   INFO | Writing phases: 2 | optics_measurements.phase
+   INFO | Phase advance beating in phase_x.tfs = 0.16600111694434352 | optics_measurements.phase
+   INFO | Phase advance beating in total_phase_x.tfs = 0.2858767038308986 | optics_measurements.phase
+  DEBUG | Accelerator Error Definition | optics_measurements.beta_from_phase
+  DEBUG | Start creating uncertainty information | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^Q | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^S | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^MQ | optics_measurements.beta_from_phase
+  DEBUG | DONE creating uncertainty information | optics_measurements.beta_from_phase
+WARNING | No best knowledge model - using the normal one. | optics_measurements.beta_from_phase
+   INFO | Errors from Analytical N-BPM method | optics_measurements.beta_from_phase
+   INFO |  - RMS beta beat: 318.703% | optics_measurements.beta_from_phase
+  DEBUG | Accelerator SKekB has not get_ips method. | optics_measurements.interaction_point
+   INFO | -- Run phase calculation with requested compensation | optics_measurements.phase
+   INFO | Calculating phase advances | optics_measurements.phase
+   INFO | Measured tune in plane Y = 0.53604033788 | optics_measurements.phase
+   INFO | Writing phases: 2 | optics_measurements.phase
+   INFO | Phase advance beating in phase_y.tfs = 0.17468224018499354 | optics_measurements.phase
+   INFO | Phase advance beating in total_phase_y.tfs = 0.270602194729716 | optics_measurements.phase
+  DEBUG | Accelerator Error Definition | optics_measurements.beta_from_phase
+  DEBUG | Start creating uncertainty information | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^Q | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^S | optics_measurements.beta_from_phase
+  DEBUG | creating uncertainty information for RegEx ^MQ | optics_measurements.beta_from_phase
+  DEBUG | DONE creating uncertainty information | optics_measurements.beta_from_phase
+WARNING | No best knowledge model - using the normal one. | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQC1LE.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQLC3RE.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | ValueError or no combinations left at MQC1RE.
+betas:
+[]
+alphas:
+[] | optics_measurements.beta_from_phase
+  DEBUG | No valid combinations for BPMs: ['MQC1LE', 'MQLC3RE', 'MQC1RE']. | optics_measurements.beta_from_phase
+   INFO | Errors from Analytical N-BPM method | optics_measurements.beta_from_phase
+   INFO |  - RMS beta beat: 2418.961% | optics_measurements.beta_from_phase
+  DEBUG | Accelerator SKekB has not get_ips method. | optics_measurements.interaction_point
+   INFO | Calculating coupling | optics_measurements.coupling
+  DEBUG | Intersecting measurements, starting with model | optics_measurements.coupling
+  DEBUG | Averaging (arithmetic mean) amplitude columns | optics_measurements.coupling
+  DEBUG | Averaging (circular mean) frequency columns | optics_measurements.coupling
+  DEBUG | Finding BPM pairs for momentum reconstruction | optics_measurements.coupling
+  DEBUG | Computing complex lines from spectra | optics_measurements.coupling
+  DEBUG | Computing average of coupling RDTs | optics_measurements.coupling
+  DEBUG | Getting tune separation from measurements | optics_measurements.coupling
+  DEBUG | Calculating approximated Cminus | optics_measurements.coupling
+   INFO | |C-| (approx) = 0.07153, tune_sep = 0.036, from Eq.1 in PRSTAB 17,051004 | optics_measurements.coupling
+  DEBUG | Calculating exact Cminus | optics_measurements.coupling
+   INFO | |C-| (exact)  = 0.01065, from Eq.2 w/o i*s*Delta/R in PRSTAB 17,051004 | optics_measurements.coupling
+  DEBUG | Adding model values and deltas | optics_measurements.coupling
+  DEBUG | Computing RDT amplitude values | optics_measurements.coupling
+  DEBUG | Computing phase values | optics_measurements.coupling
+  DEBUG | Computing deviation from model | optics_measurements.coupling
+  DEBUG | Computing error values | optics_measurements.coupling
+  DEBUG | Adding real and imaginary parts columns | optics_measurements.coupling
+  DEBUG | Computing RDT amplitude values | optics_measurements.coupling
+  DEBUG | Computing phase values | optics_measurements.coupling
+  DEBUG | Computing deviation from model | optics_measurements.coupling
+  DEBUG | Computing error values | optics_measurements.coupling
+  DEBUG | Adding real and imaginary parts columns | optics_measurements.coupling
