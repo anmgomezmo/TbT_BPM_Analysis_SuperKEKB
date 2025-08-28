@@ -1,0 +1,6 @@
+This is tracking script for HER using the optics of 2024-02-06.
+The goal here is to change the action Zx to create amplitude detuning.
+A bash script replaces the action and then runs the tracking.
+
+The measurement is roughly at 1.4 / 1.6 for the beta beating analysis.
+Only the horizontal needs to be changed, no meas in vertical.

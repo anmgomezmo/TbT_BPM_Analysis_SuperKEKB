@@ -1,0 +1,130 @@
+! pos is integer, "$$$" or "^^^$; cut -> the tail cut
+! generate Gaussian distributed particles at any location taking into account dispersion and xy coupling, orbit
+! GenGaussBeam[pos_, np_Real, cut_Real, emit_] := Module[{mpn, orb0, tms, mnpp, p, orbs, i, jx2, jy2, js2, psix, psiy, psis, x, px, y, py, z, pz, flag, beam0, x6},
+GenGaussBeam[pos_, np_Real, cut_Real, emit_] := Module[{beam0},
+If[~(Length@e$), e$ = Emittance[OneTurnInformation->True, Matrix->True, ExpandElementValues->False]];
+{mpn, orb0, orbs, tms} = {NormalCoordinates, OrbitAtEntrance, ClosedOrbit, TransferMatrices}/.e$;
+p = LINE["POSITION", pos];
+mnpp = If[p>1&&p<LINE["POSITION", $$$],
+            tms[p].SymplecticInverse[mpn],                
+            SymplecticInverse[mpn]
+            ];
+FFS["GCUT="//cut];
+! 2Jx
+{jx2, jy2, js2} = Table[-2*emit[i]*Log[1-Random[np]], {i, 3}];
+{psix, psiy, psis} = Table[2*PI*Random[np], {3}]; 
+{x, px} = {Sqrt[jx2]*Cos[psix], -Sqrt[jx2]*Sin[psix]};
+{y, py} = {Sqrt[jy2]*Cos[psiy], -Sqrt[jy2]*Sin[psiy]};
+{z, dp} = {Sqrt[js2]*Cos[psis], -Sqrt[js2]*Sin[psis]};
+! Print[{z, dp}];
+flag = Table[1,{np}];    
+x6 = {x, px, y, py, z, dp};
+Print[x6];
+x6 = mnpp.x6;
+x6=x6+orbs[p];
+beam0 = {p, Append[x6, flag]};
+Print[beam0];
+{beam0}
+];
+
+
+GenMyGaussianBeam[np_Real, Zx_Real, Zy_Real, emit_] := Module[{beam0},
+e$ = Emittance[OneTurnInformation->True, Matrix->True, ExpandElementValues->False];
+{mpn, orb0, orbs, tms} = {NormalCoordinates, OrbitAtEntrance, ClosedOrbit, TransferMatrices}/.e$;
+p = 1;
+cut=3;
+mnpp = If[p>0&&p<LINE["POSITION", $$$],
+            tms[p].SymplecticInverse[mpn],                
+            SymplecticInverse[mpn]
+            ];
+FFS["GCUT="//cut];
+{jx2, jy2, js2} = Table[-2*emit[i]*Log[1-Random[np]], {i, 3}];
+{psix, psiy, psis} = Table[2*PI*Random[np], {3}]; 
+{x, px} = {Sqrt[jx2]*Cos[psix], -Sqrt[jx2]*Sin[psix]};
+{y, py} = {Sqrt[jy2]*Cos[psiy], -Sqrt[jy2]*Sin[psiy]};
+{z, dp} = {Sqrt[js2]*Cos[psis], -Sqrt[js2]*Sin[psis]};
+flag = Table[1,{np}];    
+x6 = {x, px, y, py, z, dp};
+x6 = mnpp.x6 ;
+x6[2] += Zx * 12;
+x6[4] += Zy * 12;
+!x6[3] += Zy;
+x6=x6+orbs[p];
+beam0 = {p, Append[x6, flag]}; ! 1 indicates the start of the beam line
+{beam0}
+];
+
+
+
+With[{def={append->False, SkipRow->False, Head->"", SkipColumnHeader->False, SkipRowFooter->False}},
+  Export[fn_, dat0_, opt___] := Module[{op, data=dat0, nd=Dimensions[dat0], nl, nw, fw},
+    op = Override[opt, def];
+    $FORM = '12.6';
+    Which[Length[nd]==1,
+         {nl, nw}={1, nd[1]}; data = {dat0},
+         Length[nd]==2, {nl, nw}=nd];
+         
+    fw = If[append/.op, OpenAppend[fn], System["rm -f "//fn]; OpenWrite[fn]];
+    If[StringLength[Head/.op]>0, WriteString[fw, Head/.op, "\n"]];
+    Table[
+      Table[WriteString[fw, data[i,j],"\n"],{j,1,nw}];
+      WriteString[fw,"\n"];
+      ,{i,1,nl}];
+    Close[fw];
+    $FORM = "S17.15";   
+    ];
+
+  Import[fn_, opt___]:=Module[{op, fr, str, p, p0, lev1={}, lin},
+    op = Override[opt, def]; 
+    fr = OpenRead[fn];
+    If[(SkipColumnHeader/.op)+(SkipRow/.op), Do[ReadString[fr], {(SkipColumnHeader/.op)+(SkipRow/.op)}]];
+    Do[
+      str = ReadString[fr];
+      If[ToString[str]=="EndOfFile", Break[]];
+      p = StringPosition[str, "\t"];
+      p = p[;;, 1];
+      p0 = Prepend[Drop[p, -1], 1];
+      lin = str[p0[#], p[#]]&/@Range[Length@p];
+      AppendTo[lev1, ToExpression[#]&/@lin]
+      ,{INF}];
+    lev1[Range[Length@lev1-SkipRowFooter/.op]]];
+   ];
+
+   
+GetQCValueTwiss[]:=
+Module[{nu0, twiss0},
+  Join[
+    ! Element["K1", {QC1L, QC1R, QC2L, QC2R}],
+        Twiss[{"NX", "NY"},"$$$"]/(2*Pi),        
+        Twiss[{"BX", "BY", "AX", "AY"}, "IP"]]
+  ]
+
+GetTune[]:= Module[{Q3, Q3},
+  ! Join[Twiss[{"NX", "NY"},"$$$"]/(2*Pi)] 
+  Q1 = Twiss[{"NX"},"$$$"]/(2*Pi);
+  Q2 = Twiss[{"NY"},"$$$"]/(2*Pi);
+  Q3 = {0,1};
+  ! Join[Q3, Q3]
+  {Q3, Q3}
+  ]
+
+! GetTune[]:=Twiss[{"NX", "NY"},"$$$"]/(2*Pi);
+
+MathX=Class[{}, {}, {},
+  Mean[list_]:=  Module[{res},
+    res = Plus@@list/Length[list]
+    ];
+
+  StandardDeviation[list_]:= Module[{mean},
+    mean = Plus@@list/Length[list];
+    Sqrt[Plus@@((list-mean)^2)/Length[list]]
+    ];
+  STD[list_]:=StandardDeviation[list];
+  
+  (* random an integer between min. and max.*)
+  RandomInteger[min_,max_]:= Module[{num,out},
+    num = (max-min)*Random[]+min;
+    out = If[num<Floor[num]+0.5, Floor[num], Ceiling[num]]
+    ];
+  ];
+

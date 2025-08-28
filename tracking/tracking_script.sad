@@ -1,0 +1,177 @@
+! ============================================
+!              Tracking Script
+! ============================================
+
+! ============================================
+!           Read the given lattice
+read "HER_06.sad";
+FFS USE RING;
+Get["func.n"];
+Get["track_fun.n"];
+
+CELL; 
+RING; EMIOUT; GAUSS; COD; CODPLOT; RFSW; NOFLUC; RADCOD; NORAD; RADTAPER; SELFCOD; 
+!NOFLUC is without quantum fluctuations, FLUC would be with
+
+DP0= 0;
+CAL NOEXPAND ;
+emit;
+e = Emittance[OneTurnInformation->True, Matrix->True, ExpandElementValues->False];
+
+
+! ============================================
+!             Twiss for matching
+em = Emittance[];
+c6bx = Twiss["BX", "PQD1C.5"];
+c7bx = Twiss["BX", "PQD1C.6"];
+c6by = Twiss["BY", "PQD1C.5"];
+c7by = Twiss["BY", "PQD1C.6"];
+c6ex = Twiss["EX", "PQD1C.5"];
+c7ex = Twiss["EX", "PQD1C.6"];
+
+
+
+! ============================================
+!                 Matching
+QX = 45.5661;
+QY = 43.6155;
+
+k1min=0.012;
+k1max=0.31;
+FIT $$$ NX QX NY QY;
+FIT PMID AX 0 AY 0;
+
+FIT PQD1C.5 AX 0 BX c6bx AY 0 BY c6by EX c6ex EPX 0;
+FIT PQD1C.6 AX 0 BX c7bx AY 0 BY c7by EX c7ex EPX 0;
+!FIT PQD1C.6 PQD1C.7 AX 0 BX 1 AY 0 BY 1 EX 1 EPX 0;  ! For another SAD version?
+
+FIT PFBMON2      PFBMON1      NXM         .3;
+FIT PFBMON2      PFBMON1      NYM         .3;
+FIT QX7LE QM7E BXM 64 BYM 80
+
+FREE QX{67}LE QM*E;
+QX6LE MIN  k1min MAX  k1max;
+QX7LE MIN -k1max MAX -k1min;
+QM{246}* MIN  k1min MAX  k1max;
+QM{357}* MIN -k1max MAX -k1min;
+
+CONVERGENCE=1e-20;
+GO;
+save all;
+
+CAL NOEXPAND;
+
+
+
+
+! ============================================
+!                 Tracking
+
+Get["track_fun.n"];
+mt=MathX[];
+
+{nx, ny, ns} = Tunes/.e;
+em = Emittance[];
+bx=Twiss["BX",1];
+by=Twiss["BY",1];
+
+emitx = Emittances[[1]]/.em ;
+emity = Emittances[[2]]/.em ;
+emitz = Emittances[[3]]/.em ;
+
+
+! Kick Amplitude
+sigmax = Sqrt[bx * emitx];
+sigmay = Sqrt[bx * emity];
+Zx = {{zx}} * sigmax;
+Zy = 1.6 * sigmax;
+Print[Zx];
+Print[Zy];
+
+
+ote = OneTurnExcitation/.e;
+Print[ote];
+
+
+! Parameters for tracking_y
+start = 1;                ! Start turn
+np    = 1;             ! Number of particles
+nturn = 1000;             ! Number of turns
+
+! BPMs Definition
+! LER
+!nbpm = {"MQC1LP","MQC2LP","MQLC2LP","MQLC3LP","MQLB1LP","MQLB4LP","MQLA2LP","MQLA5LP","MQEAP3","MQD3P3","MQEAP6","MQTATNP1","MQTATNP2","MQEAP8","MQD3P8","MQEAP10","MQEAP11","MQS1NP1","MQFWNP2","MQDWNP5","MQS2NP2","MQD3P11","MQEAP16","MQD3P14","MQEAP18","MQTANFP1","MQD3P16","MQEAP20","MQD3P18","MQEAP22","MQD3P20","MQEAP24","MQR5P","MQV4P1","MQV1P2","MQI6P","MQI7P","MQI8P","MQEAP25","MQD3P21","MQEAP27","MQD3P23","MQEAP29","MQEAP30","MQTAFOP1","MQTAFOP2","MQEAP32","MQEAP33","MQD3P29","MQEAP35","MQW2ORP","MQFWOP3","MQS2OP2","MQEAP38","MQEAP39","MQD3P33","MQEAP41","MQTAOTP1","MQTAOTP2","MQEAP44","MQD3P38","MQEAP46","MQLA5RP","MQLA2RP","MQLB4RP","MQLB1RP","MQLC3RP","MQLC2RP","MQC2RP","MQC1RP"} ;
+!pos = {.5100004,2.250002,21.1251386,28.685893,67.0736866,94.3815635,119.6907156,140.2135966,204.8643915,239.1891319,305.0773528,357.0045303,397.2161569,473.2115007,515.0315554,549.3562958,601.4329246,639.5156159,736.1192362,783.2482362,879.4059116,917.9653219,983.8535428,1025.6735975,1059.9983379,1111.9255154,1193.8077453,1228.1324858,1269.9525404,1304.2772808,1346.0973355,1380.4220759,1409.8541059,1485.7111905,1520.7176968,1601.3758856,1611.0743145,1617.1601171,1638.0874823,1672.4122228,1714.2322774,1748.5570178,1790.3770725,1814.4452387,1866.5350062,1905.510183,1981.6681167,2033.7447456,2068.069486,2109.8895407,2206.4670173,2262.9718173,2386.9512578,2415.2540939,2467.3307228,2501.6554632,2543.4755179,2619.6334516,2658.6086284,2734.7665621,2776.5866168,2810.9113572,2885.7820303,2900.3824801,2923.2915425,2955.5304075,2989.2325719,2996.7933257,3013.8064969,3015.7964987} ;
+
+! HER
+nbpm = {"MQC1LE","MQC2LE","MQLC3LE","MQLC7LE","MQLB1LE","MQLB4LE","MQLA2LE","MQLA5LE","MQD3E1","MQEAE4","MQD3E4","MQEAE6","MQTATNE1","MQTATNE2","MQEAE8","MQD3E8","MQEAE10","MQEAE11","MQR2NE1","MQFRNE3","MQDRNE5","MQEAE13","MQD3E12","MQEAE16","MQD3E14","MQEAE18","MQTANFE1","MQD3E16","MQEAE20","MQD3E18","MQEAE22","MQEAE23","MQI6E","MQI5E","MQI4E","MQX2RE","MQM2E","MQM7E","MQEAE25","MQD3E21","MQEAE27","MQD3E23","MQEAE29","MQEAE30","MQTAFOE1","MQTAFOE2","MQEAE32","MQD3E29","MQEAE35","MQR2ORE","MQDROE5","MQEAE37","MQD3E31","MQEAE39","MQD3E33","MQEAE41","MQTAOTE1","MQTAOTE2","MQEAE44","MQEAE45","MQD3E40","MQLA2RE","MQLB8RE","MQLB1RE","MQLC7RE","MQLC3RE","MQC2RE","MQC1RE"};
+pos = {.5300002,2.2500008,12.9355133,27.2720861,55.2235731,77.1787307,98.9121927,119.0986538,164.5639584,230.8020191,270.0136808,306.4724249,354.4092937,397.7476034,472.7108711,511.9225329,548.3812769,597.0252838,696.7698054,753.3246054,781.6020054,881.197528,947.4355886,983.8943327,1023.1059944,1059.5647385,1107.5016074,1189.3444407,1225.8031848,1265.0148465,1301.4735906,1350.1175975,1404.3012987,1418.7440064,1424.1361014,1494.6206604,1564.3492168,1608.8759522,1634.7988225,1671.2575666,1710.4692283,1746.9279724,1786.1396341,1813.166033,1861.1278611,1905.3942301,1980.3824571,2065.4852081,2104.6968698,2203.8099939,2288.3421939,2389.8065079,2426.265252,2465.4769137,2501.9356578,2541.1473195,2616.1355465,2660.4019155,2735.3901425,2784.0341494,2850.27221,2920.9780873,2942.8131119,2960.9918734,2989.1433603,3003.3799331,3013.8146988,3015.7846995};
+!nbpm = {"MQLC3LE","MQLC7LE","MQLB1LE","MQLB4LE","MQLA2LE","MQLA5LE","MQD3E1","MQEAE4","MQD3E4","MQEAE6","MQTATNE1","MQTATNE2","MQEAE8","MQD3E8","MQEAE10","MQEAE11","MQR2NE1","MQFRNE3","MQDRNE5","MQEAE13","MQD3E12","MQEAE16","MQD3E14","MQEAE18","MQTANFE1","MQD3E16","MQEAE20","MQD3E18","MQEAE22","MQEAE23","MQI6E","MQI5E","MQI4E","MQX2RE","MQM2E","MQM7E","MQEAE25","MQD3E21","MQEAE27","MQD3E23","MQEAE29","MQEAE30","MQTAFOE1","MQTAFOE2","MQEAE32","MQD3E29","MQEAE35","MQR2ORE","MQDROE5","MQEAE37","MQD3E31","MQEAE39","MQD3E33","MQEAE41","MQTAOTE1","MQTAOTE2","MQEAE44","MQEAE45","MQD3E40","MQLA2RE","MQLB8RE","MQLB1RE","MQLC7RE","MQLC3RE"};
+!pos = {12.9355133,27.2720861,55.2235731,77.1787307,98.9121927,119.0986538,164.5639584,230.8020191,270.0136808,306.4724249,354.4092937,397.7476034,472.7108711,511.9225329,548.3812769,597.0252838,696.7698054,753.3246054,781.6020054,881.197528,947.4355886,983.8943327,1023.1059944,1059.5647385,1107.5016074,1189.3444407,1225.8031848,1265.0148465,1301.4735906,1350.1175975,1404.3012987,1418.7440064,1424.1361014,1494.6206604,1564.3492168,1608.8759522,1634.7988225,1671.2575666,1710.4692283,1746.9279724,1786.1396341,1813.166033,1861.1278611,1905.3942301,1980.3824571,2065.4852081,2104.6968698,2203.8099939,2288.3421939,2389.8065079,2426.265252,2465.4769137,2501.9356578,2541.1473195,2616.1355465,2660.4019155,2735.3901425,2784.0341494,2850.27221,2920.9780873,2942.8131119,2960.9918734,2989.1433603,3003.3799331};
+
+! Create the beam
+{beam0} = GenMyGaussianBeam[np, Zx, Zy, {emitx, emity, 0*emitz}];
+Print[beam0];
+
+beam = beam0 ;
+
+! Output files
+fnx = "Outputdata/tracking_x.tfs";
+fny = "Outputdata/tracking_y.tfs";
+fx=OpenWrite[fnx];
+fy=OpenWrite[fny];
+WriteString[fx, "# BPMS ", nbpm, "\n"];
+WriteString[fy, "# BPMS ", nbpm, "\n"];
+WriteString[fx, "# S ", pos, "\n"];
+WriteString[fy, "# S ", pos, "\n"];
+WriteString[fx, "# NP ", np, "\n"];
+WriteString[fy, "# NP ", np, "\n"];
+WriteString[fx, "# Turns ", nturn, "\n"];
+WriteString[fy, "# Turns ", nturn, "\n"];
+WriteString[fx, "# Ampx*epsx ", 400 , "\n"];
+WriteString[fy, "# Ampx*epsx ", 400 , "\n"];
+WriteString[fx, "# Qx ", NX0, "\n"];
+WriteString[fy, "# Qx ", NX0, "\n"];
+WriteString[fx, "# Qy ", NY0, "\n"];
+WriteString[fy, "# Qy ", NY0, "\n"];
+WriteString[fx, "# Qxprime ", 1.5 , "\n"];
+WriteString[fy, "# Qxprime ", 1.5 , "\n"];
+WriteString[fx, "# Qyprime ", 1.5 , "\n"];
+WriteString[fy, "# Qyprime ", 1.5 , "\n"];
+WriteString[fx, "# epsx [m] ", emitx, "\n"];
+WriteString[fy, "# epsx [m] ", emitx, "\n"];
+WriteString[fx, "# epsy [m] ", emity, "\n"];
+WriteString[fy, "# epsy [m] ", emity, "\n"];
+
+! Really start the tracking
+i = 1;
+While[
+  i < nturn+1,
+  Print["Turn ", i];
+  WriteString[fx, "#\n# TurnNumber ",i,"\n"];
+  WriteString[fy, "#\n# TurnNumber ",i,"\n"];
+
+  Do[
+    beam=TrackParticles[beam,nbpm[j],1,1];
+    beamx = {mt@Mean[beam[[2,1]]]}; 
+    beamy = {mt@Mean[beam[[2,3]]]}; 
+    WriteString[fx,beamx, "\n"];
+    WriteString[fy,beamy, "\n"];
+
+  ,{j, Length[nbpm]}];
+i++;]
+
+Close[fx];
+Close[fy];
+
+
+
+! ============================================
+!               Save the model
+em = Emittance[];
+fn1 = "Outputdata/model_tracking_her_06/twiss.dat";
+fn2 = "Outputdata/model_tracking_her_06/twiss_elements.dat";
+SaveTwiss[fn1, fn2];
+
+
+abort;
